@@ -34,10 +34,10 @@ const Table = (props) => {
     
     const { linkData, removeLink } = props;
     return(
-        <div>
+        <table>
            <TableHeader/>
            <TableBody linkData={linkData} removeLink={removeLink}/>         
-        </div>
+        </table>
     )
 }
 
