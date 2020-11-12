@@ -2,32 +2,28 @@ import React, {Component} from 'react';
 
 class Form extends Component {
     constructor(props) {
-        super(props);
-        
+        super(props);     
         /*
-            TODO - set initial state for link name and URL 
+            set initial state for link name and URL 
         */
-
         this.state ={
             name: '',
             url: ''
         } 
-
+        this.handleChange = this.handleChange.bind(this);
+        this.onFormSubmit = this.onFormSubmit.bind(this);
     }
 
     handleChange = (event) => {
         /*
             TODO - Logic for changing state based on form changes
         */
-
         const target = event.target;
         const value = target.value;
         const name = target.name;
-        const url = target.url
    
         this.setState({
-            [name]: value,
-            [url] : value
+            [name]: value
         });
 
     } 
@@ -37,10 +33,9 @@ class Form extends Component {
         event.preventDefault();
         
         /*
-            TODO - Logic for calling props to handle submission 
+            Logic for calling props to handle submission 
             and setting state changes
         */
-
         this.setState({
             name: "", 
             url: ""
@@ -55,14 +50,13 @@ class Form extends Component {
         return(
 
             <form>
-                {/* TODO - Logic for returning a form element 
+                {/* Logic for returning a form element 
                 with labels and inputs for link name and URL */}
 
                 <label for="name"> Name </label><br/>
                 <input type="text" id="name" name="name" value={this.state.name} onChange={this.handleChange}/><br/>
                 <label for="url"> URL </label><br/>
                 <input type="text" id="url" name="url" value={this.state.url} onChange={this.handleChange}/><br/>
-                
                 <input type="submit" value="Submit" onClick = {this.onFormSubmit}/> 
 
             </form>
